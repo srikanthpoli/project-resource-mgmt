@@ -1,0 +1,20 @@
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.table-title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.add-button {
+  background-color: #004c97; // BMO primary blue
+  color: white;
+}
+
+.add-button:hover {
+  background-color: #003366;
+}

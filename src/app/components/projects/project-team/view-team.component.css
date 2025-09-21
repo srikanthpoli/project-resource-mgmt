@@ -1,0 +1,45 @@
+/* Dialog title styling */
+.mat-dialog-title, .dialog-title-padding {
+  padding: 16px 24px !important; /* space around the title */
+  font-size: 20px;
+  font-weight: 600;
+  text-align: left;
+}
+
+/* Dialog content styling */
+mat-dialog-content {
+  padding: 16px 24px; /* Add padding around table and form */
+  min-width: 600px;
+  max-width: 800px;
+}
+
+/* Team table styling */
+.team-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 8px; /* vertical space between rows */
+}
+
+/* Table row padding */
+.team-row td {
+  padding: 8px 12px; /* row padding for readability */
+}
+
+/* Add member section */
+.add-member {
+  display: flex;
+  align-items: center;
+  margin-top: 16px;
+  gap: 10px;
+}
+
+/* Dialog actions spacing */
+mat-dialog-actions {
+  padding: 12px 24px;
+}
+
+/* Optional: make table cells more compact */
+.team-table th, .team-table td {
+  white-space: nowrap; /* prevent columns from stretching too wide */
+  text-align: left;
+}

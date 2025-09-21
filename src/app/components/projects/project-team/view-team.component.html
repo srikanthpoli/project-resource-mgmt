@@ -1,0 +1,83 @@
+<h2 mat-dialog-title>
+  <div class="dialog-title-padding">Team Members</div>
+</h2>
+
+<mat-dialog-content>
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z2 team-table">
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let member">
+        <ng-container *ngIf="editingId !== member.id">
+          {{ member.name }}
+          <button mat-icon-button color="primary" (click)="startEdit(member)">
+            <mat-icon>edit</mat-icon>
+          </button>
+        </ng-container>
+        <ng-container *ngIf="editingId === member.id">
+          <mat-form-field appearance="outline" style="width: 150px;">
+            <mat-select [(ngModel)]="editedMember.name">
+              <mat-option *ngFor="let r of data.resources" [value]="r.name">{{ r.name }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </ng-container>
+      </td>
+    </ng-container>
+
+    <!-- Contribution Column -->
+    <ng-container matColumnDef="contribution">
+      <th mat-header-cell *matHeaderCellDef> Contribution % </th>
+      <td mat-cell *matCellDef="let member">
+        <ng-container *ngIf="editingId !== member.id">
+          {{ member.contribution }}
+        </ng-container>
+        <ng-container *ngIf="editingId === member.id">
+          <mat-form-field appearance="outline" style="width: 80px;">
+            <input matInput type="number" min="0" max="100" [(ngModel)]="editedMember.contribution">
+          </mat-form-field>
+          <button mat-icon-button color="primary" (click)="saveEdit()">
+            <mat-icon>check</mat-icon>
+          </button>
+          <button mat-icon-button (click)="cancelEdit()">
+            <mat-icon>close</mat-icon>
+          </button>
+        </ng-container>
+      </td>
+    </ng-container>
+
+    <!-- Actions Column -->
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let member">
+        <button mat-icon-button color="warn" (click)="deleteMember(member.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="team-row"></tr>
+  </table>
+
+  <!-- Add new member -->
+  <div class="add-member">
+    <mat-form-field appearance="outline" style="width: 150px; margin-right:10px;">
+      <mat-select [(ngModel)]="newMember.name" placeholder="Select Member">
+        <mat-option *ngFor="let r of data.resources" [value]="r.name">{{ r.name }}</mat-option>
+
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="width: 80px; margin-right:10px;">
+      <input matInput type="number" min="0" max="100" [(ngModel)]="newMember.contribution" placeholder="%">
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="addMember()">Add</button>
+  </div>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="close()">Close</button>
+</mat-dialog-actions>
+ 

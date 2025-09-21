@@ -1,0 +1,62 @@
+<h2 mat-dialog-title>{{ data ? 'Edit Resource' : 'Add Resource' }}</h2>
+
+<mat-dialog-content [formGroup]="form" class="resource-form">
+  <mat-form-field appearance="fill" class="full">
+    <mat-label>Name</mat-label>
+    <input matInput formControlName="name" />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full">
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email" />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full">
+    <mat-label>Mobile</mat-label>
+    <input matInput formControlName="mobile" />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full">
+    <mat-label>Job Role</mat-label>
+    <input matInput formControlName="jobRole" />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full">
+    <mat-label>Location</mat-label>
+    <mat-select formControlName="location">
+      <mat-option value="Onshore">Onshore</mat-option>
+      <mat-option value="Offshore">Offshore</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-checkbox formControlName="fte">FTE</mat-checkbox>
+
+  <mat-form-field appearance="fill" class="full">
+    <mat-label>Manager</mat-label>
+    <input matInput formControlName="managerName" />
+  </mat-form-field>
+
+  <div formGroupName="skills" class="skills">
+    <h3>Skills</h3>
+
+    <mat-form-field appearance="fill" class="full">
+      <mat-label>Primary Skill</mat-label>
+      <input matInput formControlName="primary" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full">
+      <mat-label>Secondary Skill</mat-label>
+      <input matInput formControlName="secondary" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full">
+      <mat-label>Tertiary Skill</mat-label>
+      <input matInput formControlName="tertiary" />
+    </mat-form-field>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="cancel()">Cancel</button>
+  <button mat-flat-button color="primary" (click)="save()">Save</button>
+</mat-dialog-actions>

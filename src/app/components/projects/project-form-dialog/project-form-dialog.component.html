@@ -1,0 +1,49 @@
+<h2 mat-dialog-title>{{ data.project ? 'Edit Project' : 'Add Project' }}</h2>
+<div mat-dialog-content>
+  <form [formGroup]="projectForm" class="project-form">
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Project Name</mat-label>
+      <input matInput formControlName="name">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Delivery Date</mat-label>
+      <input matInput type="date" formControlName="deliveryDate">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Dev STO</mat-label>
+      <mat-select formControlName="devSto">
+        <mat-option *ngFor="let r of data.resources" [value]="r.name">{{ r.name }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>BA STO</mat-label>
+      <mat-select formControlName="baSto">
+        <mat-option *ngFor="let r of data.resources" [value]="r.name">{{ r.name }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Lead Dev</mat-label>
+      <mat-select formControlName="leadDev">
+        <mat-option *ngFor="let r of data.resources" [value]="r.name">{{ r.name }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Lead BA</mat-label>
+      <mat-select formControlName="leadBa">
+        <mat-option *ngFor="let r of data.resources" [value]="r.name">{{ r.name }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+  </form>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-raised-button color="primary" (click)="save()">Save</button>
+  <button mat-button (click)="cancel()">Cancel</button>
+</div>

@@ -1,0 +1,106 @@
+.app-page-container {
+  padding: 0 24px;        // space on left and right
+  box-sizing: border-box;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-container {
+  flex: 1;                 // take remaining height
+  border-radius: 8px;      // match header/footer
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1); // optional: subtle shadow
+}
+.app-sidenav {
+  width: 220px;
+  background: #f5f5f5;
+  display: flex;
+    flex-direction: column;
+  padding: 16px 0;
+}
+
+.app-title {
+  font-size: 18px;
+  font-weight: 600;
+  padding: 16px;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+  color: #1976d2;
+}
+
+.app-main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.app-header {
+  background-color: #004c97; // BMO dark blue
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+    border-radius: 8px;      // optional: rounded edges for container effect
+  margin-bottom: 16px;     // spacing below header
+}
+
+.app-header-logo {
+  font-weight: bold;
+  font-size: 20px;
+  margin-right: 20px;
+}
+
+.app-header-title {
+  font-size: 18px;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.app-content {
+  flex: 1;
+  padding: 24px;       // add space on all sides
+  box-sizing: border-box;
+  background-color: #ffffff; // optional: to separate content from page background
+  border-radius: 8px;  // optional: subtle rounded corners for modern look
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05); // optional: soft shadow for depth
+}
+
+.app-footer {
+  background: #f0f0f0;
+  padding: 12px 0;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #ddd;
+}
+
+.app-header-logo {
+  height: 36px;    // adjust as needed
+  width: auto;
+  margin-right: 16px;
+}
+
+.app-header-inner {
+  display: flex;
+  align-items: center;      // vertical centering
+  width: 100%;
+}
+
+
+.app-header-title {
+  font-size: 18px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;      // vertical centering
+  height: 100%;             // match toolbar height
+}
+
+.spacer {
+  flex: 1;
+}
+
+
+

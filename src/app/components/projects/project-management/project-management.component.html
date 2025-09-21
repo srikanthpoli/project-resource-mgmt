@@ -1,0 +1,63 @@
+<div class="app-content">
+
+  <div class="table-header">
+    <span class="table-title">Projects</span>
+      <button mat-flat-button color="primary" (click)="addProjectPopup()">
+    <mat-icon>add</mat-icon> Add Project
+  </button>
+  </div>
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z2">
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Project Name</th>
+      <td mat-cell *matCellDef="let project">{{ project.name }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="deliveryDate">
+      <th mat-header-cell *matHeaderCellDef>Delivery Date</th>
+      <td mat-cell *matCellDef="let project">{{ project.deliveryDate }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="devSto">
+      <th mat-header-cell *matHeaderCellDef>Dev STO</th>
+      <td mat-cell *matCellDef="let project">{{ project.devSto }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="baSto">
+      <th mat-header-cell *matHeaderCellDef>BA STO</th>
+      <td mat-cell *matCellDef="let project">{{ project.baSto }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="leadDev">
+      <th mat-header-cell *matHeaderCellDef>Lead Dev</th>
+      <td mat-cell *matCellDef="let project">{{ project.leadDev }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="leadBa">
+      <th mat-header-cell *matHeaderCellDef>Lead BA</th>
+      <td mat-cell *matCellDef="let project">{{ project.leadBa }}</td>
+    </ng-container>
+
+<ng-container matColumnDef="actions">
+  <th mat-header-cell *matHeaderCellDef>Actions</th>
+  <td mat-cell *matCellDef="let project">
+    <button mat-icon-button color="primary" (click)="editProjectPopup(project)">
+      <mat-icon>edit</mat-icon>
+    </button>
+    <!-- <button mat-icon-button color="warn" (click)="deleteProject(project)">
+      <mat-icon>delete</mat-icon>
+    </button> -->
+  </td>
+</ng-container>
+
+<ng-container matColumnDef="team">
+  <th mat-header-cell *matHeaderCellDef>Team</th>
+  <td mat-cell *matCellDef="let project">
+    <button mat-button color="primary" (click)="openTeam(project)">View Team</button>
+  </td>
+</ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
